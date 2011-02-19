@@ -3,11 +3,11 @@ require 'table'
 
 class Game
   attr_reader :big_blind, :small_blind, :players, :next_position, :to_call
-  attr_accessor :state, :pot, :last_bet
+  attr_accessor :state, :pot
 
   @@state = [
     :post_blind,
-    :bet,
+    :call,
     :raise,
     :check
   ]
@@ -23,16 +23,8 @@ class Game
     @small_blind   = small_blind
     @next_position = 0
     @turn_offset   = 0
-  end
-
-  def bet(player, amount)
-    @pot += amount
-    @to_call = amount
-    @state = :bet
-
-    debug(player, "raised: #{amount}, pot: #{@pot}, state: #{@state}")
-
-    increment_position
+    @call_check    = 0
+    @folded        = 0
   end
 
   def raise(player, amount)
@@ -45,26 +37,36 @@ class Game
     @to_call = amount
     @state = :raise
 
+    @call_check = 1
+
     debug(player, "raised: #{amount}, pot: #{@pot}, state: #{@state}")
 
-    increment_position
+    increment_position!
   end
 
   def call(player, amount)
+    if amount == 0
+      debug(player, "tried to call #{amount}, ignoring")
+      return
+    end
+
+    @call_check += 1
+
     @pot += amount
-    @state = :raise
 
     debug(player, "called: #{amount}, pot: #{@pot}, state: #{@state}")
 
-    increment_position
+    increment_position!
   end
 
   def post_blind(player, amount)
     @pot += amount
 
     if @pot == @big_blind + @small_blind
-      @state = :bet
-      3.times { increment_position }
+      @state = :call
+      @to_call = @big_blind
+      @call_check += 1
+      3.times { increment_position! }
     end
 
     debug(player, "posted blind: #{amount}, pot: #{@pot}, state: #{@state}")
@@ -72,12 +74,13 @@ class Game
 
   def fold(player)
     debug(player, "folded, pot: #{@pot}, state: #{@state}")
-
-    increment_position
+    @folded += 1
+    increment_position!
   end
 
   def check(player)
     debug(player, "checked, pot: #{@pot}, state: #{@state}")
+    @call_check += 1
     @state = :check
   end
 
@@ -95,8 +98,11 @@ class Game
   end
 
   def next_player
-    player = @players[@next_position]
-    return player
+    return @players[next_position]
+  end
+
+  def previous_player
+    return @players[((@next_position - 1) % @players.size)]
   end
 
   def dealer_player
@@ -111,21 +117,34 @@ class Game
     return @players[1]
   end
 
-  def increment_position
+  def increment_position!
     @next_position = (@next_position + 1) % @players.size
     @next_position
   end
 
   def called?
-    @players.each do |player|
-      p "#{player.position} => #{player.total_in_pot}"
-      if player.total_in_pot != @to_call
-        # return false
-      end
+    # fast path, if we get to a player who has to call with zero dollars,
+    # otherwise we have to make sure everyone has called
+    if (@call_check == @players.size - @folded)
+      return true
+    else
+      return false
+    end
+  end
+
+  def current_deal
+    @table.state
+  end
+
+  def deal
+    unless called?
+      error("cannot deal until current deal is called")
+      return false
     end
 
-    @state = :call
+    @table.next_deal
+    @called = 0
 
-    return true
+    return @table.state
   end
 end

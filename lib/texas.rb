@@ -1,4 +1,4 @@
-$: << File.expand_path('../game', __FILE__)
+$: << File.expand_path('../texas', __FILE__)
 
 require 'card'
 require 'deck'

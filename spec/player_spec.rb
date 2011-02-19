@@ -1,91 +1,132 @@
 require File.expand_path("../spec_helper", __FILE__)
 
 describe Player do
-  before(:each) do
-    @game = Game.new(nil, 5, 10)
+  include Wrong
 
-    4.times do
+  before(:each) do
+    @game = Game.new(5, 10)
+
+    6.times do
       player = Player.new(@game, 100)
+      player.stubs(:error)
+      @game.stubs(:debug)
       @game.add_player(player)
     end
   end
 
   describe "when the game is in post_blind state" do
+        
     it "the dealer should pay nothing" do
-      @game.players[0].available_actions.must_equal []
-      @game.players[0].post_blind.must_equal false
+      assert { @game.dealer_player.available_actions == [] }
+      assert { @game.dealer_player.post_blind == false }
     end
 
     it "the player to the left of the blind should pay nothing" do
-      @game.players[3].available_actions.must_equal []
-      @game.players[3].post_blind.must_equal false
+      assert { @game.players[3].available_actions == [] }
+      assert { @game.players[3].post_blind == false }
     end
 
     it "the small blind should pay the small blind" do
-      @game.players[1].available_actions.must_equal [:post_blind]
-      @game.players[1].post_blind
-      @game.pot.must_equal @game.small_blind
-      @game.players[1].chips.must_equal(100 - @game.small_blind)
+      assert { @game.small_blind_player.available_actions == [:post_blind] }
+      assert { @game.small_blind_player.post_blind }
+      assert { @game.small_blind_player.chips == (100-@game.small_blind) }
     end
 
     it "the big blind should pay the big blind" do
-      @game.players[2].available_actions.must_equal [:post_blind]
-      @game.players[2].post_blind
-      @game.pot.must_equal @game.big_blind + @game.small_blind
-      @game.players[2].chips.must_equal(100 - @game.big_blind)
+      assert { @game.big_blind_player.available_actions == [:post_blind] }
+      assert { @game.big_blind_player.post_blind }
+      assert { @game.big_blind_player.chips == (100 - @game.big_blind) }
     end
   end
 
-  describe "when the game is in the bet state" do
-    it "the player to the left should be next to play" do
-      (@game.next_player == @game.players[3]).must_equal true
+  describe "when the blinds have been posted and the game is in call state" do
+    before do
+      SpecUtils::post_blinds(@game)
     end
 
-    it "the player should be able to bet, raise, fold or all_in" do
-      @game.next_player.available_actions.must_equal [:call, :bet, :raise, :fold, :all_in]
+    it "the player to the left of the big blind should be next to play" do
+      assert { @game.next_player == @game.players[3] }
     end
-  end
 
-  describe "when the game is in bet state and the next player bets" do
-    it "should increase the game's pot size" do
-      @game.next_player.bet(15).must_equal true
-      @game.pot.must_equal 30
-      @game.state.must_equal :bet
+    it "the player should be able to call, raise, fold or all_in" do
+      assert { @game.next_player.available_actions == [:call, :raise, :fold, :all_in] }
     end
   end
 
-  describe "when the game is in the bet state and the next player calls" do
-    it "should increase the game's pot size by to_call" do
-      player = @game.next_player
-      to_call = player.to_call
-      chips = player.chips
-      player.call.must_equal true
-      @game.pot.must_equal 45
-      @game.state.must_equal :bet
-      player.chips.must_equal chips-to_call
+  describe "when the game is in the raise state" do
+    before do
+      SpecUtils::raise_state(@game, 20)
+    end
+
+    it "the player should be able to call, raise, fold or all_in" do
+      assert { @game.next_player.available_actions == [:call, :raise, :fold, :all_in] }
+    end
+
+    it "the player must call the correct amount and pay for it" do
+      assert { @game.next_player.to_call == 30 }
+    end
+
+    describe "when the player calls" do
+      it "should pay the call amount" do
+        to_call = @game.to_call
+        @game.next_player.to_call
+        assert { @game.previous_player.chips == (100-to_call)}
+      end
+    end
+
+    describe "when the player folds" do
+      it "should pay nothing" do
+        @game.next_player.fold
+        assert { @game.previous_player.chips == 100 }
+      end
     end
   end
 
-  describe "when the game is in bet state and the next player folds" do
-    it "should increase the game's pot by zero and take cost the player nothing" do
-      player = @game.next_player
-      chips = player.chips
-      player.fold.must_equal true
-      @game.pot.must_equal 45
-      player.chips.must_equal chips
+  describe "when all players call to the small blind" do
+    before do
+      SpecUtils::calls_to_small_blind(@game, @game.players.size)
+    end
+
+    it "next player should be the small blind" do
+      assert { @game.next_player == @game.small_blind_player }
+    end
+
+    it "should only have to pay the small blind to call" do
+      assert { @game.next_player.to_call == @game.small_blind }
+    end
+
+    it "should not be able to check instead of call" do
+      assert { @game.next_player.available_actions.include?(:check) == false }
+    end
+
+    it "should pay the call amount" do
+      to_call = @game.to_call
+      @game.next_player.call
+      assert { @game.previous_player.chips == (100-(@game.small_blind*2))}
     end
   end
 
-  describe "when the game is in bet state and the next player raises" do
-    it "should increase the game's pot, the to_call and take cost the player the raise" do
-      player = @game.next_player
-      chips = player.chips
-      player.raise(15).must_equal false
-      player.raise(20).must_equal true
-      @game.pot.must_equal 45+20
-      @game.state.must_equal :raise
-      player.chips.must_equal chips-20
+  describe "when all players call to the big blind" do
+    before do
+      SpecUtils::calls_to_big_blind(@game, @game.players.size)
+    end
+
+    it "next player should be the big blind" do
+      assert { @game.next_player == @game.big_blind_player }
+    end
+
+    it "should be able to check, raise or go all in" do
+      assert { @game.next_player.available_actions == [:raise, :all_in, :check]}
+    end
+
+    it "should only have to check to call" do
+      assert { @game.next_player.to_call == 0 }
+    end
+
+    it "should pay nothing when checking" do
+      to_call = @game.to_call
+      @game.next_player.check
+      assert { @game.previous_player.chips == (100-@game.big_blind)}
     end
   end
-
 end

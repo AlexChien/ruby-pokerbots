@@ -5,15 +5,15 @@ class Player
   # game state => player actions
   @@actions = {
     :post_blind => [:post_blind],
-    :bet        => [:call, :bet, :raise, :fold, :all_in],  # big blind can check
+    :call       => [:call, :raise, :fold, :all_in],
     :check      => [:raise, :check, :all_in],
-    :raise      => [:call, :fold, :raise, :all_in],
+    :raise      => [:call, :raise, :fold, :all_in]
   }
 
   def initialize(game, chips)
     @game     = game
     @chips    = chips
-    @state    = :bet
+    @state    = :call
     @actions  = []
     @position = nil
     @last_bet = 0
@@ -53,56 +53,23 @@ class Player
     @action = :post_blind
     @total_in_pot += amount
 
-
-    return true
-  end
-
-  def bet(amount)
-    if not @@actions[@game.state].include?(:bet)
-      error("cannot bet when game.state == #{@game.state}")
-      return false
-    end
-
-    if @position == 1
-      amount -= @game.small_blind
-    end
-
-    if @position == 2
-      amount -= @game.big_blind
-    end
-
-    if(amount <= @game.big_blind)
-      error("must bet more than the big blind")
-      return false
-    end
-
-    if amount > @chips
-      error("cannot bet #{amount} > #{@chips}")
-      return false
-    end
-
-    @chips -= amount
-    @action = :bet
-    @game.bet(self, amount)
-    @total_in_pot += amount
-
     return true
   end
 
   def to_call
-    if @action == :raise and @game.state == :raise
-      amount = [@game.to_call - @total_in_pot, 0].max
-    else
-      amount = @game.to_call
+    amount = @game.to_call
+
+    if @total_in_pot == amount
+      amount = [@total_in_pot - amount, 0].max
     end
 
     # small blind
-    if @position == 1
+    if self == @game.small_blind_player
       return [amount - @game.small_blind, 0].max
     end
 
     # big blind
-    if @position == 2
+    if self == @game.big_blind_player
       return [amount - @game.big_blind, 0].max
     end
 
@@ -110,7 +77,7 @@ class Player
   end
 
   def call
-    return unless valid_action?(:call)
+    return false unless valid_action?(:call)
 
     amount = to_call
 
@@ -132,17 +99,14 @@ class Player
   def raise(amount)
     return unless valid_action?(:raise)
 
-    # this is a reraise
-    if @game.state == :raise
-      amount += @game.to_call
-    end
+    # to raise we must pay to call
+    amount = @game.to_call + amount
 
     if amount > @chips
       error("not enough chips to raise #{amount}, go all in?")
       return false
     end
 
-    prev_state= @game.state
     return false unless @game.raise(self, amount)
 
     @chips -= amount
@@ -192,8 +156,12 @@ class Player
   end
 
   def available_actions
-    if @position == 2 and (@@actions[@game.state].include?(:check) == false and @game.state != :post_blind)
-      return @@actions[@game.state] + [:check]
+    if self == @game.big_blind_player and @game.state == :call
+      actions = @@actions[@game.state].clone
+      actions.delete(:call)
+      actions.delete(:fold)
+      actions << :check
+      return actions
     end
 
     if (@position > 2 or @position == 0) and @@actions[@game.state].include?(:post_blind) == true
@@ -203,14 +171,28 @@ class Player
     @@actions[@game.state]
   end
 
+  def to_s
+    case position
+    when 0
+      pos_name = "dealer"
+    when 1
+      pos_name = "small_blind"
+    when 2
+      pos_name = "big_blind"
+    else
+      pos_name = "dealer+#{position}"
+    end
+
+    "Player '#{pos_name}': (chips: #{@chips}, pot: #{@total_in_pot}, last bet: #{@last_bet}, state: #{@state})"
+  end
+
 private
   def valid_action?(action)
-    if not @@actions[@game.state].include?(action)
+    if not available_actions.include?(action)
       error("cannot #{action} when game.state == #{@game.state}")
       return false
     else
       return true
     end
   end
-
 end
