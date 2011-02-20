@@ -1,6 +1,6 @@
 $: << File.expand_path('../texas', __FILE__)
 
-require 'card'
+require 'hand'
 require 'deck'
 require 'game'
 require 'player'
