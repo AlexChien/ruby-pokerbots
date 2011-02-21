@@ -4,7 +4,19 @@ class Game
   attr_reader :big_blind, :small_blind, :players, :next_position, :to_call
   attr_accessor :pot
 
-  state_machine :initial => :deal do
+  state_machine :initial => :waiting do
+
+    after_transition :waiting => :deal, :do => :deal_players
+    after_transition :deal => :flop, :do => :deal_flop
+    after_transition :flop => :turn, :do => :deal_turn
+    after_transition :turn => :river, :do => :deal_river
+    after_transition :river => :showdown, :do => :resolve_hands
+    after_transition :showdown => :deal, :do => :move_button
+
+    event :start do
+      transition :waiting => :deal
+    end
+
     event :deal do
       transition :deal  => :flop, :if => lambda { |g| g.called? }
       transition :flop  => :turn, :if => lambda { |g| g.called? }
@@ -23,10 +35,49 @@ class Game
     @big_blind     = big_blind
     @small_blind   = small_blind
     @next_position = 0
-    @turn_offset   = 0
+    @offset        = 0
     @call_check    = 0
     @folded        = 0
     super
+  end
+
+  def deal_players
+    @deck.shuffle
+    @next_position = 1 # deal left of button
+
+    (@players.size*2).times do
+      next_player.deal(@deck.deal)
+      increment_position!
+    end
+
+    @next_position = 0
+  end
+
+  def deal_flop
+    @deck.deal # burn a card
+    3.times { @table.deal(@deck.deal) }
+    @table.check
+  end
+
+  def deal_turn
+    @deck.deal # burn a card
+    @table.deal(@deck.deal)
+  end
+
+  def deal_river
+    @deck.deal # burn a card
+    @table.deal(@deck.deal)
+  end
+
+  def resolve_hands
+  end
+
+  def table_cards
+    @table.cards
+  end
+
+  def move_button
+    @offset = (@offset + 1) % @players.size
   end
 
   def table_state
@@ -105,13 +156,15 @@ class Game
   end
 
   def check(player)
-    if @table.can_check?
+    if @table.can_check? == false
       error("cannot check, table is in #{@table.state}")
       return false
     end
 
     debug(player, "checked, pot: #{@pot}, state: #{@state}")
     @call_check += 1
+
+    increment_position!
 
     @table.check
     return true
@@ -135,28 +188,30 @@ class Game
   end
 
   def previous_player
-    return @players[((@next_position - 1) % @players.size)]
+    return @players[((@next_position - 1 - @offset) % @players.size)]
   end
 
   def dealer_player
-    return @players[0]
+    return @players[0 + @offset]
   end
 
   def big_blind_player
-    return @players[2]
+    return @players[2 + @offset]
   end
 
   def small_blind_player
-    return @players[1]
+    return @players[1 + @offset]
   end
 
   def increment_position!
-    @next_position = (@next_position + 1) % @players.size
+    @next_position = (@next_position + 1 + @offset) % @players.size
     @next_position
   end
 
   def called?
     if (@call_check == @players.size - @folded)
+      @table.called
+      @call_check = 0
       return true
     else
       return false

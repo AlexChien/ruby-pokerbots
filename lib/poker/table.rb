@@ -14,6 +14,7 @@ class Table
 
     event :check do
       transition :check => :check
+      transition :called => :check
     end
 
     event :raise do
@@ -27,11 +28,15 @@ class Table
     end
   end
 
+  attr_reader :cards
+
   def initialize(game)
     @game = game
-    @flop_cards = []
-    @turn_card  = nil
-    @river_card = nil
+    @cards = []
     super
+  end
+
+  def deal(card)
+    @cards << card
   end
 end

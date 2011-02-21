@@ -10,6 +10,8 @@ describe Game do
       player = Player.new(@game, 100)
       @game.add_player(player)
     end
+
+    @game.start
   end
 
   describe "when the game is in post_blind state and the players have posted the blinds" do

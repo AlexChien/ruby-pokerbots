@@ -2,7 +2,7 @@ require File.expand_path("../../poker", __FILE__)
 
 class Player
   attr_accessor :position, :chips, :action
-  attr_reader :total_in_pot
+  attr_reader :total_in_pot, :cards
 
   # game state => player actions
   @@actions = {
@@ -20,6 +20,11 @@ class Player
     @position = nil
     @last_bet = 0
     @total_in_pot = 0
+    @cards = []
+  end
+
+  def deal(card)
+    @cards << card
   end
 
   def error(msg)
@@ -27,13 +32,10 @@ class Player
   end
 
   def post_blind
-
     if not @@actions[@game.table_state].include?(:post_blind)
       error("cannot bet when game.table_state == #{@game.table_state}")
       return false
     end
-
-
 
     if @position != 1 and @position != 2
       error("not playing in the blinds")
