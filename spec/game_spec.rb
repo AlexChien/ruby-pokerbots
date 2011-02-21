@@ -15,7 +15,7 @@ describe Game do
   describe "when the game is in post_blind state and the players have posted the blinds" do
     it "should go to the call state" do
       SpecUtils::post_blinds(@game)
-      assert { @game.state == :call }
+      assert { @game.table_state == :call }
       assert { @game.pot == (@game.big_blind + @game.small_blind) }
     end
   end
@@ -31,7 +31,7 @@ describe Game do
       end
 
       it "should stay in the call state" do
-        assert { @game.state == :call }
+        assert { @game.table_state == :call }
       end
 
       it "the games pot should be equal to the big blind + small blind + players blind" do
@@ -51,7 +51,7 @@ describe Game do
       end
 
       it "should stay in the call state" do
-        assert { @game.state == :call }
+        assert { @game.table_state == :call }
       end
 
       it "the games pot be unchanged" do
@@ -69,7 +69,7 @@ describe Game do
       end
 
       it "should go to the raise state" do
-        assert { @game.state == :raise }
+        assert { @game.table_state == :raise }
       end
 
       it "the games pot should be equal to the big blind + small blind + players blind + his raise" do
@@ -94,7 +94,7 @@ describe Game do
       end
 
       it "should stay in the raise state" do
-        assert { @game.state == :raise }
+        assert { @game.table_state == :raise }
       end
 
       it "the games pot should equal all the blinds + the initial raise + our call" do
@@ -114,7 +114,7 @@ describe Game do
       end
 
       it "should stay in the raise state" do
-        assert { @game.state == :raise }
+        assert { @game.table_state == :raise }
       end
 
       it "the games pot be unchanged" do
@@ -133,7 +133,7 @@ describe Game do
       end
 
       it "should stay in the raise state" do
-        assert { @game.state == :raise }
+        assert { @game.table_state == :raise }
       end
 
       it "the games pot should equal all the blinds + the initial raise + the reraise" do
@@ -175,7 +175,7 @@ describe Game do
       end
 
       it "should go to the flop deal" do
-        assert { @game.current_deal == :flop }
+        assert { @game.state == 'flop' }
       end
     end
   end
@@ -208,8 +208,8 @@ describe Game do
       end
 
       it "should go to the flop deal" do
-        assert { @game.current_deal == :flop }
+        assert { @game.state == 'flop' }
       end
     end
-  end
+ end
 end

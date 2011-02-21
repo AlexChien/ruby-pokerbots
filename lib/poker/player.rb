@@ -1,10 +1,12 @@
+require File.expand_path("../../poker", __FILE__)
+
 class Player
   attr_accessor :position, :chips, :action
   attr_reader :total_in_pot
 
   # game state => player actions
   @@actions = {
-    :post_blind => [:post_blind],
+    :open  => [:post_blind],
     :call       => [:call, :raise, :fold, :all_in],
     :check      => [:raise, :check, :all_in],
     :raise      => [:call, :raise, :fold, :all_in]
@@ -25,10 +27,13 @@ class Player
   end
 
   def post_blind
-    if not @@actions[@game.state].include?(:post_blind)
-      error("cannot bet when game.state == #{@game.state}")
+
+    if not @@actions[@game.table_state].include?(:post_blind)
+      error("cannot bet when game.table_state == #{@game.table_state}")
       return false
     end
+
+
 
     if @position != 1 and @position != 2
       error("not playing in the blinds")
@@ -118,8 +123,8 @@ class Player
   end
 
   def fold
-    if not @@actions[@game.state].include?(:fold)
-      error("cannot fold when game.state == #{@game.state}")
+    if not @@actions[@game.table_state].include?(:fold)
+      error("cannot fold when game.table_state == #{@game.table_state}")
       return false
     end
 
@@ -131,8 +136,8 @@ class Player
   end
 
   def check
-    if not @@actions[@game.state].include?(:check) and @position != 2
-      error("cannot check when game.state == #{@game.state}")
+    if not @@actions[@game.table_state].include?(:check) and @position != 2
+      error("cannot check when game.table_state == #{@game.table_state}")
       return false
     end
 
@@ -143,8 +148,8 @@ class Player
   end
 
   def all_in
-    if not @@actions[@game.state].include?(:all_in)
-      error("cannot all_in when game.state == #{@game.state}")
+    if not @@actions[@game.table_state].include?(:all_in)
+      error("cannot all_in when game.table_state == #{@game.table_state}")
       return false
     end
 
@@ -156,19 +161,19 @@ class Player
   end
 
   def available_actions
-    if self == @game.big_blind_player and @game.state == :call
-      actions = @@actions[@game.state].clone
+    if self == @game.big_blind_player and @game.table_state == :call
+      actions = @@actions[@game.table_state].clone
       actions.delete(:call)
       actions.delete(:fold)
       actions << :check
       return actions
     end
 
-    if (@position > 2 or @position == 0) and @@actions[@game.state].include?(:post_blind) == true
+    if (@position > 2 or @position == 0) and @@actions[@game.table_state].include?(:post_blind) == true
       return []
     end
 
-    @@actions[@game.state]
+    @@actions[@game.table_state]
   end
 
   def to_s
@@ -189,7 +194,7 @@ class Player
 private
   def valid_action?(action)
     if not available_actions.include?(action)
-      error("cannot #{action} when game.state == #{@game.state}")
+      error("cannot #{action} when game.table_state == #{@game.table_state}")
       return false
     else
       return true

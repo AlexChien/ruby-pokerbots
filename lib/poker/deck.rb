@@ -1,3 +1,5 @@
+require File.expand_path("../../poker", __FILE__)
+
 class Deck
   attr_reader :deck
 

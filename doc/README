@@ -1,0 +1,33 @@
+Poker bot URLS:
+
+http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots
+
+Poker hands:
+http://en.wikipedia.org/wiki/List_of_poker_hands
+
+Good UI:
+http://i.d.com.com/i/dl/media/dlimage/20/63/04/206304_large.jpeg
+
+http://www.codingthewheel.com/archives/how-i-built-a-working-poker-bot
+
+3 pixel card identification
+
+Rule based system:
+
+given a set of hole cards, execute this set of actions
+example:
+
+Actions available:
+CALL: if it has not been raised
+      if im later than 7th to act
+      if the table has exactly 10 seats
+      if its less than 4xBB to call
+
+Mac OSX Poker Bot Development:
+http://pokerai.org/pf3/viewtopic.php?f=79&t=3842&view=previous
+
+Automation for Mac in Cocoa:
+http://developer.apple.com/library/mac/#samplecode/SonOfGrab/Introduction/Intro.html
+
+Quickeys Mac:
+http://startly.com/products/quickeys/mac/4/whatisqk.html
