@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: SpecUtils</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./spec/spec_utils_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="spec/spec_utils.rb">spec/spec_utils.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-calls_to_big_blind">::calls_to_big_blind</a></li>
+					
+					<li><a href="#method-c-calls_to_small_blind">::calls_to_small_blind</a></li>
+					
+					<li><a href="#method-c-everyone_calls">::everyone_calls</a></li>
+					
+					<li><a href="#method-c-everyone_calls_complex">::everyone_calls_complex</a></li>
+					
+					<li><a href="#method-c-post_blinds">::post_blinds</a></li>
+					
+					<li><a href="#method-c-raise_state">::raise_state</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./Gemfile.html">Gemfile</a></li>
+				
+					<li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+				
+					<li class="file"><a href="./design/DESIGN.html">DESIGN</a></li>
+				
+					<li class="file"><a href="./design/IDEAS.html">IDEAS</a></li>
+				
+					<li class="file"><a href="./design/README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./Deck.html">Deck</a></li>
+				
+					<li><a href="./Game.html">Game</a></li>
+				
+					<li><a href="./Hand.html">Hand</a></li>
+				
+					<li><a href="./Player.html">Player</a></li>
+				
+					<li><a href="./Pot.html">Pot</a></li>
+				
+					<li><a href="./SpecUtils.html">SpecUtils</a></li>
+				
+					<li><a href="./Table.html">Table</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">SpecUtils</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="calls-to-big-blind-method" class="method-detail ">
+				<a name="method-c-calls_to_big_blind"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">calls_to_big_blind</span><span
+						class="method-args">(game, players_count)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="calls-to-big-blind-source">
+<pre>
+    <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">calls_to_big_blind</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">players_count</span>)
+22:     <span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+23: 
+24:     (<span class="ruby-identifier">players_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+25:       <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">call</span>
+26:     <span class="ruby-keyword kw">end</span>
+27:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="calls-to-small-blind-method" class="method-detail ">
+				<a name="method-c-calls_to_small_blind"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">calls_to_small_blind</span><span
+						class="method-args">(game, players_count)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="calls-to-small-blind-source">
+<pre>
+    <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">calls_to_small_blind</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">players_count</span>)
+14:     <span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+15: 
+16:     (<span class="ruby-identifier">players_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+17:       <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">call</span>
+18:     <span class="ruby-keyword kw">end</span>
+19:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="everyone-calls-method" class="method-detail ">
+				<a name="method-c-everyone_calls"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">everyone_calls</span><span
+						class="method-args">(game, players_count)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="everyone-calls-source">
+<pre>
+    <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 29</span>
+29:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">everyone_calls</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">players_count</span>)
+30:     <span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+31: 
+32:     <span class="ruby-identifier">players_count</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+33:       <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">call</span>
+34:     <span class="ruby-keyword kw">end</span>
+35:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="everyone-calls-complex-method" class="method-detail ">
+				<a name="method-c-everyone_calls_complex"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">everyone_calls_complex</span><span
+						class="method-args">(game, players_count)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="everyone-calls-complex-source">
+<pre>
+    <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 37</span>
+37:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">everyone_calls_complex</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">players_count</span>)
+38:     <span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+39:     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-value">15</span>)
+40:     <span class="ruby-identifier">players_count</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+41:       <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">call</span>
+42:     <span class="ruby-keyword kw">end</span>
+43:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="post-blinds-method" class="method-detail ">
+				<a name="method-c-post_blinds"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">post_blinds</span><span
+						class="method-args">(game)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="post-blinds-source">
+<pre>
+   <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 3</span>
+3:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+4:     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">big_blind_player</span>.<span class="ruby-identifier">post_blind</span>
+5:     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">small_blind_player</span>.<span class="ruby-identifier">post_blind</span>
+6:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="raise-state-method" class="method-detail ">
+				<a name="method-c-raise_state"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">raise_state</span><span
+						class="method-args">(game, amount)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="raise-state-source">
+<pre>
+    <span class="ruby-comment cmt"># File spec/spec_utils.rb, line 8</span>
+ 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">raise_state</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">amount</span>)
+ 9:     <span class="ruby-identifier">post_blinds</span>(<span class="ruby-identifier">game</span>)
+10:     <span class="ruby-identifier">game</span>.<span class="ruby-identifier">next_player</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-identifier">amount</span>)
+11:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

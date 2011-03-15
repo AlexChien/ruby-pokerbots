@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Player</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./lib/poker/player_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/poker/player.rb">lib/poker/player.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-all_in">#all_in</a></li>
+					
+					<li><a href="#method-i-available_actions">#available_actions</a></li>
+					
+					<li><a href="#method-i-call">#call</a></li>
+					
+					<li><a href="#method-i-check">#check</a></li>
+					
+					<li><a href="#method-i-deal">#deal</a></li>
+					
+					<li><a href="#method-i-error">#error</a></li>
+					
+					<li><a href="#method-i-fold">#fold</a></li>
+					
+					<li><a href="#method-i-post_blind">#post_blind</a></li>
+					
+					<li><a href="#method-i-raise">#raise</a></li>
+					
+					<li><a href="#method-i-to_call">#to_call</a></li>
+					
+					<li><a href="#method-i-to_s">#to_s</a></li>
+					
+					<li><a href="#method-i-valid_action%3F">#valid_action?</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./Gemfile.html">Gemfile</a></li>
+				
+					<li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+				
+					<li class="file"><a href="./design/DESIGN.html">DESIGN</a></li>
+				
+					<li class="file"><a href="./design/IDEAS.html">IDEAS</a></li>
+				
+					<li class="file"><a href="./design/README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./Deck.html">Deck</a></li>
+				
+					<li><a href="./Game.html">Game</a></li>
+				
+					<li><a href="./Hand.html">Hand</a></li>
+				
+					<li><a href="./Player.html">Player</a></li>
+				
+					<li><a href="./Pot.html">Pot</a></li>
+				
+					<li><a href="./SpecUtils.html">SpecUtils</a></li>
+				
+					<li><a href="./Table.html">Table</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Player</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="position-attribute-method" class="method-detail">
+				<a name="position"></a>
+				
+				<a name="position="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">position</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="chips-attribute-method" class="method-detail">
+				<a name="chips"></a>
+				
+				<a name="chips="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">chips</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="action-attribute-method" class="method-detail">
+				<a name="action"></a>
+				
+				<a name="action="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">action</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="total-in-pot-attribute-method" class="method-detail">
+				<a name="total_in_pot"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">total_in_pot</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="cards-attribute-method" class="method-detail">
+				<a name="cards"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">cards</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(game, chips)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/poker/player.rb, line 15</span>
+15:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">game</span>, <span class="ruby-identifier">chips</span>)
+16:     <span class="ruby-ivar">@game</span>     = <span class="ruby-identifier">game</span>
+17:     <span class="ruby-ivar">@chips</span>    = <span class="ruby-identifier">chips</span>
+18:     <span class="ruby-ivar">@state</span>    = <span class="ruby-value">:call</span>
+19:     <span class="ruby-ivar">@actions</span>  = []
+20:     <span class="ruby-ivar">@position</span> = <span class="ruby-keyword kw">nil</span>
+21:     <span class="ruby-ivar">@last_bet</span> = <span class="ruby-value">0</span>
+22:     <span class="ruby-ivar">@total_in_pot</span> = <span class="ruby-value">0</span>
+23:     <span class="ruby-ivar">@cards</span> = []
+24:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="all-in-method" class="method-detail ">
+				<a name="method-i-all_in"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">all_in</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="all-in-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 152</span>
+152:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_in</span>
+153:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:all_in</span>)
+154:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot all_in when game.table_state == #{@game.table_state}&quot;</span>)
+155:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+156:     <span class="ruby-keyword kw">end</span>
+157: 
+158:     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">last_bet</span> = <span class="ruby-ivar">@chips</span>
+159:     <span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">chips</span>
+160:     <span class="ruby-ivar">@chips</span> = <span class="ruby-value">0</span>
+161: 
+162:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+163:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="available-actions-method" class="method-detail ">
+				<a name="method-i-available_actions"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">available_actions</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="available-actions-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 165</span>
+165:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">available_actions</span>
+166:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">big_blind_player</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:call</span>
+167:       <span class="ruby-identifier">actions</span> = <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">clone</span>
+168:       <span class="ruby-identifier">actions</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:call</span>)
+169:       <span class="ruby-identifier">actions</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:fold</span>)
+170:       <span class="ruby-identifier">actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:check</span>
+171:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">actions</span>
+172:     <span class="ruby-keyword kw">end</span>
+173: 
+174:     <span class="ruby-keyword kw">if</span> (<span class="ruby-ivar">@position</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:post_blind</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span>
+175:       <span class="ruby-keyword kw">return</span> []
+176:     <span class="ruby-keyword kw">end</span>
+177: 
+178:     <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>]
+179:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="call-method" class="method-detail ">
+				<a name="method-i-call"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">call</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="call-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 86</span>
+ 86:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>
+ 87:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">valid_action?</span>(<span class="ruby-value">:call</span>)
+ 88: 
+ 89:     <span class="ruby-identifier">amount</span> = <span class="ruby-identifier">to_call</span>
+ 90: 
+ 91:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">amount</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@chips</span>
+ 92:       <span class="ruby-identifier">error</span>(<span class="ruby-value str">&quot;not enough chips to call, go all in?&quot;</span>)
+ 93:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+ 94:     <span class="ruby-keyword kw">end</span>
+ 95: 
+ 96:     <span class="ruby-ivar">@chips</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">amount</span>
+ 97:     <span class="ruby-ivar">@action</span> = <span class="ruby-value">:call</span>
+ 98: 
+ 99:     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">amount</span>)
+100: 
+101:     <span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">amount</span>
+102: 
+103:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+104:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="check-method" class="method-detail ">
+				<a name="method-i-check"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">check</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="check-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 140</span>
+140:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check</span>
+141:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:check</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>
+142:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot check when game.table_state == #{@game.table_state}&quot;</span>)
+143:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+144:     <span class="ruby-keyword kw">end</span>
+145: 
+146:     <span class="ruby-ivar">@action</span> = <span class="ruby-value">:check</span>
+147:     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">check</span>(<span class="ruby-keyword kw">self</span>)
+148: 
+149:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+150:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="deal-method" class="method-detail ">
+				<a name="method-i-deal"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">deal</span><span
+						class="method-args">(card)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="deal-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/poker/player.rb, line 26</span>
+26:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deal</span>(<span class="ruby-identifier">card</span>)
+27:     <span class="ruby-ivar">@cards</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
+28:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="error-method" class="method-detail ">
+				<a name="method-i-error"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">error</span><span
+						class="method-args">(msg)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="error-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/poker/player.rb, line 30</span>
+30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">msg</span>)
+31:     <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ERROR (Player #{@position}): #{msg}&quot;</span>
+32:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="fold-method" class="method-detail ">
+				<a name="method-i-fold"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fold</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="fold-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 127</span>
+127:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fold</span>
+128:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:fold</span>)
+129:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot fold when game.table_state == #{@game.table_state}&quot;</span>)
+130:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+131:     <span class="ruby-keyword kw">end</span>
+132: 
+133:     <span class="ruby-ivar">@action</span> = <span class="ruby-value">:fold</span>
+134: 
+135:     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">fold</span>(<span class="ruby-keyword kw">self</span>)
+136: 
+137:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+138:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="post-blind-method" class="method-detail ">
+				<a name="method-i-post_blind"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">post_blind</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="post-blind-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/poker/player.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">post_blind</span>
+35:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">@@actions</span>[<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table_state</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:post_blind</span>)
+36:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot bet when game.table_state == #{@game.table_state}&quot;</span>)
+37:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+38:     <span class="ruby-keyword kw">end</span>
+39: 
+40:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>
+41:       <span class="ruby-identifier">error</span>(<span class="ruby-value str">&quot;not playing in the blinds&quot;</span>)
+42:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+43:     <span class="ruby-keyword kw">end</span>
+44: 
+45:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+46:       <span class="ruby-identifier">amount</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">big_blind</span>
+47:     <span class="ruby-keyword kw">end</span>
+48: 
+49:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@position</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+50:       <span class="ruby-identifier">amount</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">small_blind</span>
+51:     <span class="ruby-keyword kw">end</span>
+52: 
+53:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">amount</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@chips</span>
+54:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot post blind #{amount} &gt; #{@chips}&quot;</span>)
+55:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+56:     <span class="ruby-keyword kw">end</span>
+57: 
+58:     <span class="ruby-ivar">@chips</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">amount</span>
+59:     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">post_blind</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">amount</span>)
+60:     <span class="ruby-ivar">@action</span> = <span class="ruby-value">:post_blind</span>
+61:     <span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">amount</span>
+62: 
+63:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+64:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="raise-method" class="method-detail ">
+				<a name="method-i-raise"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">raise</span><span
+						class="method-args">(amount)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="raise-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 106</span>
+106:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">raise</span>(<span class="ruby-identifier">amount</span>)
+107:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">valid_action?</span>(<span class="ruby-value">:raise</span>)
+108: 
+109:     <span class="ruby-comment cmt"># to raise we must pay to call</span>
+110:     <span class="ruby-identifier">amount</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">to_call</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount</span>
+111: 
+112:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">amount</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@chips</span>
+113:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;not enough chips to raise #{amount}, go all in?&quot;</span>)
+114:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+115:     <span class="ruby-keyword kw">end</span>
+116: 
+117:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">amount</span>)
+118: 
+119:     <span class="ruby-ivar">@chips</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">amount</span>
+120:     <span class="ruby-ivar">@action</span> = <span class="ruby-value">:raise</span>
+121:     <span class="ruby-ivar">@last_bet</span> = <span class="ruby-identifier">amount</span>
+122:     <span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">amount</span>
+123: 
+124:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+125:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-call-method" class="method-detail ">
+				<a name="method-i-to_call"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_call</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-call-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/poker/player.rb, line 66</span>
+66:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_call</span>
+67:     <span class="ruby-identifier">amount</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">to_call</span>
+68: 
+69:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">amount</span>
+70:       <span class="ruby-identifier">amount</span> = [<span class="ruby-ivar">@total_in_pot</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">amount</span>, <span class="ruby-value">0</span>].<span class="ruby-identifier">max</span>
+71:     <span class="ruby-keyword kw">end</span>
+72: 
+73:     <span class="ruby-comment cmt"># small blind</span>
+74:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">small_blind_player</span>
+75:       <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">amount</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">small_blind</span>, <span class="ruby-value">0</span>].<span class="ruby-identifier">max</span>
+76:     <span class="ruby-keyword kw">end</span>
+77: 
+78:     <span class="ruby-comment cmt"># big blind</span>
+79:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">big_blind_player</span>
+80:       <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">amount</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">big_blind</span>, <span class="ruby-value">0</span>].<span class="ruby-identifier">max</span>
+81:     <span class="ruby-keyword kw">end</span>
+82: 
+83:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">amount</span>
+84:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail ">
+				<a name="method-i-to_s"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-s-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 181</span>
+181:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+182:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">position</span>
+183:     <span class="ruby-keyword kw">when</span> <span class="ruby-value">0</span>
+184:       <span class="ruby-identifier">pos_name</span> = <span class="ruby-value str">&quot;dealer&quot;</span>
+185:     <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>
+186:       <span class="ruby-identifier">pos_name</span> = <span class="ruby-value str">&quot;small_blind&quot;</span>
+187:     <span class="ruby-keyword kw">when</span> <span class="ruby-value">2</span>
+188:       <span class="ruby-identifier">pos_name</span> = <span class="ruby-value str">&quot;big_blind&quot;</span>
+189:     <span class="ruby-keyword kw">else</span>
+190:       <span class="ruby-identifier">pos_name</span> = <span class="ruby-node">&quot;dealer+#{position}&quot;</span>
+191:     <span class="ruby-keyword kw">end</span>
+192: 
+193:     <span class="ruby-node">&quot;Player '#{pos_name}': (chips: #{@chips}, pot: #{@total_in_pot}, last bet: #{@last_bet}, state: #{@state})&quot;</span>
+194:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="valid-action--method" class="method-detail ">
+				<a name="method-i-valid_action%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">valid_action?</span><span
+						class="method-args">(action)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="valid-action--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/poker/player.rb, line 197</span>
+197:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">valid_action?</span>(<span class="ruby-identifier">action</span>)
+198:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">available_actions</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">action</span>)
+199:       <span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;cannot #{action} when game.table_state == #{@game.table_state}&quot;</span>)
+200:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+201:     <span class="ruby-keyword kw">else</span>
+202:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+203:     <span class="ruby-keyword kw">end</span>
+204:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

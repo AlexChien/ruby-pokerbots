@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: DESIGN [RDoc Documentation]</title>
+
+	<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../Gemfile.html">Gemfile</a></li>
+				
+					<li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+				
+					<li class="file"><a href="../design/DESIGN.html">DESIGN</a></li>
+				
+					<li class="file"><a href="../design/IDEAS.html">IDEAS</a></li>
+				
+					<li class="file"><a href="../design/README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Deck.html">Deck</a></li>
+				
+					<li><a href="../Game.html">Game</a></li>
+				
+					<li><a href="../Hand.html">Hand</a></li>
+				
+					<li><a href="../Player.html">Player</a></li>
+				
+					<li><a href="../Pot.html">Pot</a></li>
+				
+					<li><a href="../SpecUtils.html">SpecUtils</a></li>
+				
+					<li><a href="../Table.html">Table</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<p>
+Components of a Poker Bot
+</p>
+<hr style="height: 10px"></hr><p>
+INPUT (Constructing the complete model of the table):
+</p>
+<ul>
+<li><p>
+On MacOSX, can we read a log file?
+</p>
+</li>
+<li><p>
+Can we screen scrape and OCR
+</p>
+</li>
+<li><p>
+Must we hook into the application and inject a new shared library?
+</p>
+</li>
+</ul>
+<p>
+Input. The input to the system is the poker client software itself,
+including all its windows, log files, and hand histories, as well as
+internal (often private) state maintained by the running executable. The
+goal of the input stage is to interrogate the poker client and produce an
+accurate model of the table state - your hole cards, names and stack sizes
+of your opponents, current bets, and so forth.
+</p>
+<p>
+My Plan: Hook into the log writer.  We will get the table state in real
+time. No screen scraping required
+</p>
+<p>
+PROCESSING:
+</p>
+<ol>
+<li><p>
+Analyze the table state
+</p>
+</li>
+<li><p>
+Make a decision to call, bet, raise, fold or check
+</p>
+</li>
+</ol>
+<p>
+Processing. The processing stage runs independently of the other two
+stages. It&#8217;s job is to take the table model assembled during the
+Input phase, and figure out whether to fold, check, bet, raise, or call.
+That&#8217;s it. The code that performs this analysis should (ideally) know
+nothing about screen scraping or interrogating other applications. All it
+knows is how to take an abstract model of a poker table (probably expressed
+as some sort of PokerTable class) and determine which betting action to
+make.
+</p>
+<p>
+OUTPUT:
+</p>
+<ul>
+<li><p>
+Simulate human input by clicking proper button, set the bet amount, etc.
+</p>
+</li>
+</ul>
+<p>
+Output. Once the processing stage has made a decision, the Output stage
+takes over. It&#8217;s tasked with clicking the correct buttons on the
+screen, or simulating whatever user input is necessary in order to actually
+make the action occur on a given poker site/client.
+</p>
+<p>
+Use Quickeys to automate the program Find a way to run quickeys from the
+command line
+</p>
+<p>
+DATA MINING: Using historical data sets, each player will be ranked and
+categorized.  This will allow the bot to make decisions on the
+&#8216;emotional&#8217; state and history of the other player.
+</p>
+<p>
+TECHNOLOGY: Most of this will prototyped in Ruby. The real bot and
+analytics software will be written in Haskell because correctness is
+required when writing financial software. We will use the type system to
+create an application that can be reasoned about and proven to be correct.
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+
