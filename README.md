@@ -51,7 +51,7 @@ F3B: folded to three bet preflop
 CBET: continuation bet
 FCB: folded to continuation bet
 WtS: went to showdown
-#: times played
+\#: times played
 
 Charting element:
 Graph metrics
