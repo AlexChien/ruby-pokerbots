@@ -11,9 +11,10 @@ determining optimal play. Obviously this is a long shot to create something marg
 I started this when I began learning the game. It helped me understand the mechanics better by
 implementing the rules in a programming language. I wouldn't put too much faith into this code..
 
-Poker bot URLS:
+Resources
+---------
 
-http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots
+[[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots|Open Source Poker Bots]]
 
 Poker hands:
 http://en.wikipedia.org/wiki/List_of_poker_hands
