@@ -14,7 +14,7 @@ implementing the rules in a programming language. I wouldn't put too much faith 
 Resources
 ---------
 
-[[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots|Open Source Poker Bots]]
+[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots|Open Source Poker Bots]
 
 Poker hands:
 http://en.wikipedia.org/wiki/List_of_poker_hands
