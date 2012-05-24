@@ -36,22 +36,22 @@ implementing the rules in a programming language. I wouldn't put too much faith 
 *Anything to process historical log files and to hook into the UI to display and color code users would be great.*
 
 Metrics in percentages:
-VPiP: voluntarily put money into pot
-PFR: preflop raise
-Agg: Aggression
-CPFR: Called preflop raise
-FS: Flops seen
-AF: aggression factor (coefficient)
-TBB: average take in big blinds (not percentage)
-BSA: blind steal attempts
-FBB folded big blid to steal
-CR: check-raised
-3B: three bet preflop
-F3B: folded to three bet preflop
-CBET: continuation bet
-FCB: folded to continuation bet
-WtS: went to showdown
-\#: times played
+1. VPiP: voluntarily put money into pot
+2. PFR: preflop raise
+3. Agg: Aggression
+4. CPFR: Called preflop raise
+5. FS: Flops seen
+6. AF: aggression factor (coefficient)
+7. TBB: average take in big blinds (not percentage)
+8. BSA: blind steal attempts
+9. FBB folded big blid to steal
+10. CR: check-raised
+11. 3B: three bet preflop
+12. F3B: folded to three bet preflop
+13. CBET: continuation bet
+14. FCB: folded to continuation bet
+15. WtS: went to showdown
+16. \#: times played
 
 Charting element:
 Graph metrics
