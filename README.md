@@ -11,25 +11,22 @@ determining optimal play. Obviously this is a long shot to create something marg
 I started this when I began learning the game. It helped me understand the mechanics better by
 implementing the rules in a programming language. I wouldn't put too much faith into this code..
 
-Resources
----------
+===Resources:===
 
-[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots|Open Source Poker Bots]
+* (Open Source Poker Bots)[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots]
+* (Poker Hands)[http://en.wikipedia.org/wiki/List_of_poker_hands]
+* (Good UI Example)[http://i.d.com.com/i/dl/media/dlimage/20/63/04/206304_large.jpeg]
+* (How I Built a Working Poker Bot)[http://www.codingthewheel.com/archives/how-i-built-a-working-poker-bot]
+* (Mac OSX Poker Bot Development)[http://pokerai.org/pf3/viewtopic.php?f=79&t=3842&view=previous]
+* (Automation for Mac in Cocoa)[http://developer.apple.com/library/mac/#samplecode/SonOfGrab/Introduction/Intro.html]
+* (QuickKeys)[http://startly.com/products/quickeys/mac/4/whatisqk.html]
 
-Poker hands:
-http://en.wikipedia.org/wiki/List_of_poker_hands
+===Thoughts:===
 
-Good UI:
-http://i.d.com.com/i/dl/media/dlimage/20/63/04/206304_large.jpeg
-
-http://www.codingthewheel.com/archives/how-i-built-a-working-poker-bot
-
-3 pixel card identification
-
-Rule based system:
-
-given a set of hole cards, execute this set of actions
-example:
+* Use 3 pixel card identification method
+* DSL to create rule/constraint based system
+ 
+*given a set of hole cards, execute this set of actions*
 
 Actions available:
 CALL: if it has not been raised
@@ -37,18 +34,7 @@ CALL: if it has not been raised
       if the table has exactly 10 seats
       if its less than 4xBB to call
 
-Mac OSX Poker Bot Development:
-http://pokerai.org/pf3/viewtopic.php?f=79&t=3842&view=previous
-
-Automation for Mac in Cocoa:
-http://developer.apple.com/library/mac/#samplecode/SonOfGrab/Introduction/Intro.html
-
-Quickeys Mac:
-http://startly.com/products/quickeys/mac/4/whatisqk.htmlWriting poker analytics software for MacOSX
-
-There is money in writing this software.
-
-Anything to process historical log files and to hook into the UI to display and color code users would be great.
+*Anything to process historical log files and to hook into the UI to display and color code users would be great.*
 
 Metrics in percentages:
 VPiP: voluntarily put money into pot
