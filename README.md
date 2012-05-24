@@ -29,9 +29,9 @@ implementing the rules in a programming language. I wouldn't put too much faith 
 
 > Actions available:
 > CALL: if it has not been raised
->       if im later than 7th to act
->       if the table has exactly 10 seats
->       if its less than 4xBB to call
+        if im later than 7th to act
+       if the table has exactly 10 seats
+        if its less than 4xBB to call
 
 *Anything to process historical log files and to hook into the UI to display and color code users would be great.*
 
