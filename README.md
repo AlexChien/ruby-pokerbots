@@ -1,5 +1,4 @@
-Poker Bots Project
-------------------
+#Poker Bots Project#
 
 *Update 05/23/2012*
 I haven't touched this code in a while. May come back to it later when I have some time.
@@ -11,7 +10,7 @@ determining optimal play. Obviously this is a long shot to create something marg
 I started this when I began learning the game. It helped me understand the mechanics better by
 implementing the rules in a programming language. I wouldn't put too much faith into this code..
 
-===Resources:===
+##Resources:##
 
 * (Open Source Poker Bots)[http://www.codingthewheel.com/archives/open-source-poker-and-poker-bots]
 * (Poker Hands)[http://en.wikipedia.org/wiki/List_of_poker_hands]
@@ -21,7 +20,7 @@ implementing the rules in a programming language. I wouldn't put too much faith 
 * (Automation for Mac in Cocoa)[http://developer.apple.com/library/mac/#samplecode/SonOfGrab/Introduction/Intro.html]
 * (QuickKeys)[http://startly.com/products/quickeys/mac/4/whatisqk.html]
 
-===Thoughts:===
+##Thoughts:##
 
 * Use 3 pixel card identification method
 * DSL to create rule/constraint based system
